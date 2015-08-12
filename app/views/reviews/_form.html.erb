@@ -1,0 +1,51 @@
+<%= form_for review  do |f| %>
+	
+	<div class="row">
+		<div class="col-md-6">
+			
+			<%= f.hidden_field :product_id %>
+
+			<p>
+				<%= f.text_field :content , :class => "form-control first_input" %>	
+			</p>
+		</div>
+		
+		<div class="col-md-3">	
+			<p>
+				<%= f.label :vote, "1", :vote => "1"  %>
+    			<%= f.radio_button :vote, 1 %>
+					
+	
+			
+				<%= f.label :vote, "2", :vote => "2" %>
+    			<%= f.radio_button :vote, 2 %>
+    		
+		
+			
+				<%= f.label :vote, "3", :vote => "3" %>
+    			<%= f.radio_button :vote, 3 %>
+	
+		
+				<%= f.label :vote, "4", :vote => "4" %>
+    			<%= f.radio_button :vote, 4 %>
+		
+		
+		
+				<%= f.label :vote, "5", :vote => "5" %>
+    			<%= f.radio_button :vote, 5 %>
+		
+		
+    		</p>
+    	</div>
+			<div class="col-md-3">
+    			<%= f.submit "Leave a Review",  :class => "btn btn-success" %>
+    		</div>
+
+		</div>
+	
+
+    	
+	
+	<hr>
+
+<% end %>

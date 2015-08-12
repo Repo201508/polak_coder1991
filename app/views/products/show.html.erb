@@ -1,0 +1,51 @@
+ 	<div class="col-md-3">
+			<div class="list-group">
+				<a href="#" class="list-group-item active">Category 1</a>
+				<a href="#" class="list-group-item">Category 2</a>
+				<a href="#" class="list-group-item">Category 3</a>
+			</div>
+	</div>
+	
+	<div class="col-md-9">
+		
+		<div class="thumbnail">
+			<%= image_tag @product.avatar(:large) %>
+				<div class="caption-full">
+					<h2 class="pull-right">$<%= @product.price %></h2>
+					<h3>
+						<%= @product.name %>
+					</h3>
+					
+					<p class>
+						<small><%= @product.description %></small>
+					</p>
+					
+				</div>
+				
+				<div class="ratings">
+					<p class="pull-right"><%= @product.count_reviews %></p>
+					<p>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star-empty"></span>
+						4.0 stars
+					</p>
+				</div>
+		</div>
+
+		<div class="well">
+			
+		<hr>
+
+			<%= render 'reviews/index', reviews: @product.reviews %>
+
+			<hr>
+
+			<%= render 'reviews/form', review: @product.reviews.new %>	
+			
+			
+
+		</div>
+	</div>
