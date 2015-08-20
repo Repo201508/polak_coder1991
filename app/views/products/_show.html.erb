@@ -1,0 +1,56 @@
+<div class="row">
+	<div class="col-md-12">
+		<%= image_tag @product.avatar(:medium) %>
+			<div class="caption-full">
+				<h2 class="pull-right">$<%= @product.price %></h2>
+				<h3><%= @product.name %></h3>
+				<p><small><%= @product.description %></small></p>
+			</div>
+				
+			<div class="ratings">
+				<p class="pull-right"><%= @product.count_reviews %></p>
+				<p>
+				<% case @product.average_reviews %>
+				<% when 1 %>
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star-empty"></span>
+					<span class="glyphicon glyphicon-star-empty"></span>
+					<span class="glyphicon glyphicon-star-empty"></span>
+					<span class="glyphicon glyphicon-star-empty"></span>
+				<% when 2 %>
+					<span class="glyphicon glyphicon-star"></span> 
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star-empty"></span>
+					<span class="glyphicon glyphicon-star-empty"></span>
+					<span class="glyphicon glyphicon-star-empty"></span> 
+				<% when 3 %>
+					<span class="glyphicon glyphicon-star"></span> 
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star-empty"></span>
+					<span class="glyphicon glyphicon-star-empty"></span> 
+				<%when 4 %>
+					<span class="glyphicon glyphicon-star"></span> 
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span> 
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star-empty"></span> 
+				<% when 5 %>
+					<span class="glyphicon glyphicon-star"></span> 
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span> 
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span>
+				 <%	end %>
+				</p>
+			</div>
+		
+			<div class="well">
+				<hr>
+					<div="reviews">
+    					<%= render 'reviews/index', reviews: @product.reviews %>
+    				</div>
+				<hr>
+			</div>
+	</div>
+</div>

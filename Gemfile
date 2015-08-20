@@ -6,6 +6,19 @@ gem 'bootstrap-sass'
 gem 'jquery-ui-rails'
 gem 'devise'
 gem 'rails_admin'
+gem 'best_in_place', git: 'https://github.com/bernat/best_in_place.git'
+gem 'social-share-button'
+
+#do autentykacji przez fejsa wymagane
+#know how https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview
+#zmodyfikowane pliki: gemfile, devise.rb, user.rb, application.html.erb, routes.rb, OmniauthCallbacksController.rb
+gem 'omniauth-facebook'
+
+#podobno najlepszy, byl ale wyrzucilem bo cos nie smigal jak trzeba
+gem 'bootstrap-datetimepicker-rails'
+
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'

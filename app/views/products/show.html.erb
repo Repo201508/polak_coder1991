@@ -1,51 +1,65 @@
- 	<div class="col-md-3">
-			<div class="list-group">
-				<a href="#" class="list-group-item active">Category 1</a>
-				<a href="#" class="list-group-item">Category 2</a>
-				<a href="#" class="list-group-item">Category 3</a>
-			</div>
-	</div>
-	
-	<div class="col-md-9">
+ <div class="col-md-3 text-center">
+	<%= image_tag @product.tatuer.avatar(:round), class: "img-circle img-responsive img-center" %>
+	<h3 class="order_details">
+		We are almost there! 
+		<h4><small>Set date, when You want to attend your session.</small></h4>
+	</h3>
+	<p class="order_details_2">If You do not have any account yet, You will be asked to create one. </p>
 		
-		<div class="thumbnail">
-			<%= image_tag @product.avatar(:large) %>
-				<div class="caption-full">
-					<h2 class="pull-right">$<%= @product.price %></h2>
-					<h3>
-						<%= @product.name %>
-					</h3>
-					
-					<p class>
-						<small><%= @product.description %></small>
-					</p>
-					
-				</div>
+	<%= render 'orders/form', order: @product.orders.new %>
+</div>	
+	
+<div class="col-md-9">
+	<div class="thumbnail">
+		<%= image_tag @product.avatar(:medium) %>
+			<div class="caption-full">
+				<h2 class="pull-right">$<%= @product.price %></h2>
+				<h3><%= @product.name %></h3>
+				<p><small><%= @product.description %></small></p>
+			</div>
 				
-				<div class="ratings">
-					<p class="pull-right"><%= @product.count_reviews %></p>
-					<p>
+			<div class="ratings">
+				<p class="pull-right"><%= @product.count_reviews %></p>
+				<p>
+				<% case @product.average_reviews %>
+					<% when 1 %>
 						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star-empty"></span>
+						<span class="glyphicon glyphicon-star-empty"></span>
+						<span class="glyphicon glyphicon-star-empty"></span>
+						<span class="glyphicon glyphicon-star-empty"></span>
+					<% when 2 %>
+						<span class="glyphicon glyphicon-star"></span> 
 						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star-empty"></span>
+						<span class="glyphicon glyphicon-star-empty"></span>
+						<span class="glyphicon glyphicon-star-empty"></span> 
+					<% when 3 %>
+						<span class="glyphicon glyphicon-star"></span> 
 						<span class="glyphicon glyphicon-star"></span>
 						<span class="glyphicon glyphicon-star"></span>
 						<span class="glyphicon glyphicon-star-empty"></span>
-						4.0 stars
+						<span class="glyphicon glyphicon-star-empty"></span> 
+					<% when 4 %>
+						<span class="glyphicon glyphicon-star"></span> 
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span> 
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star-empty"></span> 
+					<% when 5 %>
+						<span class="glyphicon glyphicon-star"></span> 
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span> 
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+					<% end %>
 					</p>
-				</div>
-		</div>
-
-		<div class="well">
-			
-		<hr>
-
-			<%= render 'reviews/index', reviews: @product.reviews %>
-
-			<hr>
-
-			<%= render 'reviews/form', review: @product.reviews.new %>	
-			
-			
-
-		</div>
+			</div>
 	</div>
+
+	<div class="well">	
+		<hr>
+			<%= render 'reviews/index', reviews: @product.reviews %>
+		<hr>
+	</div>
+</div>

@@ -9,7 +9,7 @@
 
 	<body>
  		<div class="brand">Underground!</div>
-			<div class="address-bar"> Bonarka City Center | Cracow, LP  | 730-559-784 </div>
+			<div class="address-bar"> Bonarka City Center | Cracow, LP  | 888-xxx-xxx </div>
 			
 			<!-- Navigation -->
 				<nav class="navbar navbar-default" role="navigation">
@@ -17,30 +17,48 @@
 					<!-- Brand and toggle get grouped for better mobile display -->
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
+								<i class="fa fa-bars"></i>
 							</button>
 						<!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
 							<a class="navbar-brand" href="index.html">Underground Tatoos</a>
 						</div>
 						
 						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<div class="collapse navbar-collapse navbar-left navbar-main-collapse" >
 							<ul class="nav navbar-nav">
 								<li>
 									<a href="/">Home</a>
 								</li>
 								<li>
-									<a href="about.html">About</a>
+									<%= link_to "About Us", about_path %>
+								</li>
+								<li>
+									<%= link_to "Contact", new_contact_path %>
 								</li>
 								
-								<li>
-									<a href="contact.html">Contact</a>
-								</li>
 							</ul>
 						</div>
+						<% if user_signed_in? %>
+              				<ul class="nav navbar-nav navbar-right">
+                  
+                  				<li class="dropdown">
+                    				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+                      
+                      				<ul class="dropdown-menu">
+                        				<li><%= link_to "My Tatoos", my_orders_path  %></li>
+                        				<li><%= link_to "Edit account", edit_user_registration_path %></li>
+                        				<li role="separator" class="divider"></li>
+                        				<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                    				</ul>
+                  				</li>
+              				</ul>
+              			<% else %>
+              				<ul class="nav navbar-nav navbar-right">
+              					<li>
+                  					<%= link_to "Sign In", new_user_session_path %>
+								</li>
+              				</ul>
+						<% end %>
 				<!-- /.navbar-collapse -->
 					</div>
 <!-- /.container -->	

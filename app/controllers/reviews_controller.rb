@@ -1,9 +1,5 @@
 class ReviewsController < ApplicationController
   
-
-  
-
-
   def index
   	@reviews = Review.all
   end
@@ -13,22 +9,29 @@ class ReviewsController < ApplicationController
   end
 
   def create
-  	@review = Review.new(review_params)
-
-  		
-  			if @review.save
-  		       redirect_to @review.product 	
-  			end
-  		
+  	@review = current_user.reviews.create(review_params)
+    
+    if @review.save
+  	  redirect_to tatuers_path #@review.product
+    end	
   end
+
+  def update
+    respond_to do |format|
+      
+        format.html 
+        format.json {render :nothing => true, :status => 200}
+
+    end
+  end
+
+  
+
+
+  
 
   private
   	def review_params
-  		params.require(:review).permit(:content, :vote, :product_id)
+  		params.require(:review).permit(:content, :vote, :product_id, :user_id)
   	end
-
-    
-
-
-
 end

@@ -16,3 +16,7 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require_tree .
+//= require social-share-button
+//= require jquery.purr
+//= require best_in_place
+//= require best_in_place.jquery-ui

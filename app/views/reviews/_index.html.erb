@@ -1,19 +1,13 @@
-
-
-			
-		<% reviews.each do |review| %>
-			<div class="row">
-				<div class="col-md-12">
-					
-					Anonymous
-					
-					<span class="pull-right">
-						<h6><%= distance_of_time_in_words(Time.now, review.created_at) %> ago
+<% reviews.each do |review| %>
+	<div class="row">
+		<div class="col-md-9">
+			<%= review.user.to_s %>
+			<span class="pull-right">
+				<h6><%= distance_of_time_in_words(Time.now, review.created_at) %> ago
               			</h6>
-              		</span>
-					
-					<p><%= review.content %></p>
-				</div>
-			</div>
-			<hr>
-		<% end %>
+            </span>
+			<p><%= best_in_place review, :content %></p>
+		</div>
+	</div>
+	<hr>
+<% end %>
