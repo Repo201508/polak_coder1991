@@ -19,7 +19,7 @@ Review.destroy_all
 
 
 Admin.create(email: 'admin@example.com', password: 'pass1234', password_confirmation: 'pass1234')
-p 'admin created.'
+p 'admin created - admin@example.com password: pass1234'
 
 
 
@@ -32,7 +32,7 @@ Product.create(price: 219, description: "Tatuaż tribal na łopatkę.", created_
 p '2 Products created.'
 
 User.create(email: "example@user.com", password: "12345678", password_confirmation: "12345678")
-p 'User created.'
+p 'User created - example@user.com, password: 12345678'
 
 Review.create(content: "I want that one ! :)", vote: 5, product_id: 1, created_at: "2015-08-20 13:59:01", updated_at: "2015-08-20 13:59:01", user_id: 1)
 p 'Review created.'
